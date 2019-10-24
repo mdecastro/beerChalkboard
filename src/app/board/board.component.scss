@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat&display=swap');
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: url('../../assets/chalkboard.jpg');
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 0.3em;
+    //font-family: 'Pangolin', cursive;
+    font-family: 'Walter Turncoat', cursive;
+    @media (min-width: 768px) {
+        flex-direction: row;
+        font-size: 0.6vw;
+    }
+
+    .beer {
+        border: 1px solid white;
+        box-sizing: border-box;
+        @media (min-width: 768px) {
+            width: 50%;
+            max-height: 25%;
+        }
+    }
+}

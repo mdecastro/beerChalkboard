@@ -1,0 +1,9 @@
+<section class="container">
+    <app-board-beer 
+        class="beer" 
+        *ngFor="let beer of beers" 
+        [beer]="beer" 
+        [brewer]="getBrewer(beer.brewerId)"
+        [style]="getStyle(beer.styleId)"
+    ></app-board-beer>
+</section>

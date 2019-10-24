@@ -1,0 +1,30 @@
+<div class="beer-content">
+    <div class="beer-content__picture">
+        <img src="{{brewer.logo}}">
+        <div class="beer-content__picture__beer-name">{{brewer.name}}</div>
+    </div>
+    <div class="beer-content__beer-data">
+        <div class="beer-content__beer-data__beer-style">
+            {{style.name}}
+        </div>
+        <div class="beer-content__beer-data__beer-name">
+            <span *ngIf="beer.name.toUpperCase() != style.name.toUpperCase()">{{beer.name}}</span>
+        </div>
+        <div class="beer-content__beer-data__beer-info">
+            <span class="alc">ALC: <span>{{beer.alc}}%</span></span>
+            <span class="ibu">IBU: <span>{{beer.ibu}}</span></span>
+            <span class="srm">SRM: <span>{{beer.srm}}</span></span>
+        </div>
+        <div class="beer-content__beer-data__beer-price">
+            <span class="regular">$ {{beer.normalPrice}}</span>
+            <span class="slash">/</span>
+            <span class="happy">$ {{beer.happyPrice}}</span>
+        </div>
+    </div>
+    <div class="beer-content__beer-glass">
+        <span *ngIf="beer.glass === 1"><img src="../../assets/pinta.svg"></span>
+        <span *ngIf="beer.glass === 2"><img src="../../assets/cop.svg"></span>
+        <span *ngIf="beer.glass === 3"><img src="../../assets/largo.svg"></span>
+        <span *ngIf="beer.glass === 4"><img src="../../assets/largo.svg"></span>
+    </div>
+</div>

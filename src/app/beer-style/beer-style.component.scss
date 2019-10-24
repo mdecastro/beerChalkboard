@@ -1,0 +1,16 @@
+section {
+    padding: 30px;
+
+    form {
+        width: 400px;
+    }
+
+    table {
+        margin: 30px auto;
+        width: 600px;
+        .mat-column-actions {
+            width: 60px;
+            text-align: center;
+        }
+    }
+}

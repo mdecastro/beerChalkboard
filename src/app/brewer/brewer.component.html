@@ -1,0 +1,75 @@
+<section class="content">
+
+    <h2>Cerveceros ({{ collection.length }})</h2>
+    <div fxLayout="row" fxLayoutAlign="center center">
+
+        <form [formGroup]="brewerForm" (ngSubmit)="onSubmit()">
+            <mat-card-content fxLayout="column">
+                <mat-form-field>
+                    <input type="hidden" [formControl]="brewerForm.controls['id']">
+                    <input type="text" matInput placeholder="Nombre" [formControl]="brewerForm.controls['name']">
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Ciudad / Lugar" [formControl]="brewerForm.controls['city']">
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Logo" [formControl]="brewerForm.controls['logo']" readonly>
+                </mat-form-field>
+                <input type="file" #file accept="image/*" id="imageUploader" style="display: none;" [formControl]="brewerForm.controls['img']"/>
+                <button mat-button color="warn" (click)="openImageUploader($event)" [disabled]="!!downloadURL">
+                    <mat-icon>file_upload</mat-icon>Subir un Logo
+                </button>
+                <mat-progress-bar [value]="uploadProgress | async"></mat-progress-bar>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                  <button mat-raised-button color="primary" type="submit">Guardar</button>
+            </mat-card-actions>
+        </form>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="spinner-container" *ngIf="!(brewers$ | async)">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+
+    <table mat-table [dataSource]="brewers$" [hidden]="!(brewers$ | async)" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        
+        <!-- Name Column -->
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="logo">
+            <th mat-header-cell *matHeaderCellDef> Logo </th>
+            <td mat-cell *matCellDef="let element">
+                <img width="50" height="50" src="{{element.logo}}" title="{{element.name}}" alt="{{element.name}}"> 
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+                Acciones
+            </th>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button title="Click to Edit" class="iconbutton" color="primary">
+                    <mat-icon aria-label="Edit" (click)="edit(row)">edit</mat-icon>
+                </button>
+                <button mat-icon-button title="Click to Delete" class="iconbutton" color="warn">
+                    <mat-icon aria-label="Delete" (click)="delete(row)">delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</section>

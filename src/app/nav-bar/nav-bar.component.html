@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+
+    <a class="docs-navbar-hide-small docs-button mat-button mat-button-base" 
+        mat-button="" tabindex="0" aria-disabled="false" href="main-panel/pizarra">
+        <span class="mat-button-wrapper">Pizarra</span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a>
+
+    <button mat-button [matMenuTriggerFor]="menu">Configuración</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="brewers" routerLinkActive="active">
+           Cerveceros
+        </button>
+        <button mat-menu-item routerLink="styles" routerLinkActive="active">
+            Estilos
+        </button>
+        <button mat-menu-item routerLink="beers" routerLinkActive="active">
+            Cervezas
+        </button>
+        <button mat-menu-item routerLink="promos" routerLinkActive="active">
+            Promos
+        </button>
+    </mat-menu>
+    
+    <span class="example-spacer"></span>
+    <a class="docs-navbar-hide-small docs-button mat-button mat-button-base" 
+        mat-button="" tabindex="0" aria-disabled="false" href="/logout">
+        <span class="mat-button-wrapper">Logout</span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a>
+</mat-toolbar>
