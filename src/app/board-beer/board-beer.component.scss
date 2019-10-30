@@ -1,22 +1,38 @@
+
+$color-yellow: #faebd7;
+.h-line {
+    height: 5px;
+    position: relative;
+    img {
+        height: 10px;
+        width: 95%;
+        position: absolute;
+        top: -15px;
+    }
+}
 .beer-content {
     display: flex;
     padding: 1em;
     color: #FFF;
     
     &__picture {
-        padding: 1em;
         width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         img {
-            width: 100%;
+            width: 80%;
         }
         &__beer-name {
             text-align: center;
+            font-size: 2em;
+            color: $color-yellow;
         }
     }
 
     &__beer-data {
         width: 65%;
-        padding: 1em;
+        padding-left: 1em;
 
         &__beer-style {
             font-size: 4em;
@@ -25,7 +41,9 @@
         &__beer-name {
             font-size: 2em;
             text-transform: uppercase;
-            height: 2em;
+            height: 1.5em;
+            color: #f1a39e;
+            font-weight: bolder;
         }
 
         &__beer-info {
@@ -36,6 +54,7 @@
             span > span {
                 font-weight: bolder;
                 font-size: 1.5em;
+                color: $color-yellow;
             }
         }
 
